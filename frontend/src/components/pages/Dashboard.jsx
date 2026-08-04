@@ -1,10 +1,14 @@
-import DashboardLayout from "../layout/DashboardLayout";
 
-const Dashboard = () => {
+import { CalendarDays, ChevronDown } from "lucide-react";
+import DashboardLayout from "../layout/DashboardLayout";
+import StatsSection from "../dashboard/StatsSection";
+
+function Dashboard() {
   return (
-    <DashboardLayout/>
-      
+    <DashboardLayout>
+      <StatsSection />
+    </DashboardLayout>
   );
-};
+}
 
 export default Dashboard;
