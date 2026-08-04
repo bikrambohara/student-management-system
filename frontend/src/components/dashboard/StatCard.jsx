@@ -1,4 +1,3 @@
-
 import { TrendingUp } from "lucide-react";
 
 function StatCard({
@@ -9,7 +8,7 @@ function StatCard({
   iconStyle,
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:bg-slate-100 ">
       <div className="flex items-center gap-4">
         <div
           className={`flex h-14 w-14 items-center justify-center rounded-xl ${iconStyle}`}
