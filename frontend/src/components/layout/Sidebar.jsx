@@ -41,10 +41,7 @@ const menuItems = [
     name: "Departments",
     icon: Building2,
   },
-  {
-    name: "Reports",
-    icon: ChartNoAxesColumn,
-  },
+
   {
     name: "Settings",
     icon: Settings,
@@ -53,8 +50,8 @@ const menuItems = [
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col h-screen w-57 border-r border-slate-200 bg-gradient-to-br from-[#061b43] via-[#05255a] to-[#031638]">
-        <div className = "flex h-25 items-center justify-center  border-b border-slate-700" >
+    <div className="flex left-0 top-0 flex-col h-screen w-58 border-r border-slate-200 bg-gradient-to-br from-[#061b43] via-[#05255a] to-[#031638]">
+        <div className = "flex h-23 items-center justify-center  border-b border-slate-700" >
            <img src = "/logo.png"
                alt="Student Management System Logo"
                 className="h-23 w-50 mt-4 object-contain "/>

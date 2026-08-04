@@ -1,15 +1,35 @@
+// import Sidebar from "./Sidebar";
+// import Header from "./Header";
+
+// function DashboardLayout({ children }) {
+//   return (
+//     <div>
+//       <Sidebar />
+//       <Header />
+//     </div>
+//   );
+// }
+
+// export default DashboardLayout;
+
+
+
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 
 function DashboardLayout({ children }) {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="flex min-h-screen bg-slate-100">
+      {/* Sidebar */}
       <Sidebar />
 
-      <div className="lg:ml-64">
+      {/* Right Side */}
+      <div className="flex flex-1 flex-col">
+        {/* Header */}
         <Header />
 
-        <main className="p-4 md:p-6">
+        {/* Page Content */}
+        <main className="flex-1 p-6">
           {children}
         </main>
       </div>
