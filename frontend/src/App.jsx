@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import LoginForm from './components/Auth/LoginForm'
-import Dashboard from "./components/pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [count, setCount] = useState(0)

@@ -1,4 +1,6 @@
-import React from 'react'
+import React from "react";
+import { NavLink } from "react-router-dom";
+
 import {
   LayoutDashboard,
   Users,
@@ -12,97 +14,179 @@ import {
   LogOut,
 } from "lucide-react";
 
-const menuItems = [
-  {
-    name: "Dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    name: "Students",
-    icon: Users,
-  },
-  {
-    name: "Teachers",
-    icon: GraduationCap,
-  },
-  {
-    name: "Courses",
-    icon: BookOpen,
-  },
-  {
-    name: "Attendance",
-    icon: CalendarCheck,
-  },
-  {
-    name: "Marks",
-    icon: ClipboardList,
-  },
-  {
-    name: "Departments",
-    icon: Building2,
-  },
-  {
-   name: "Reports",
-   icon: ChartNoAxesColumn,
-  },
 
-  {
-    name: "Settings",
+const menuItems = [
+  { 
+    name: "Dashboard", 
+    icon: LayoutDashboard,
+    path: "/"
+  },
+  { 
+    name: "Students", 
+    icon: Users,
+    path: "/students"
+  },
+  { 
+    name: "Teachers", 
+    icon: GraduationCap,
+    path: "/teachers"
+  },
+  { 
+    name: "Courses", 
+    icon: BookOpen,
+    path: "/courses"
+  },
+  { 
+    name: "Attendance", 
+    icon: CalendarCheck,
+    path: "/attendance"
+  },
+  { 
+    name: "Marks", 
+    icon: ClipboardList,
+    path: "/marks"
+  },
+  { 
+    name: "Departments", 
+    icon: Building2,
+    path: "/departments"
+  },
+  { 
+    name: "Reports", 
+    icon: ChartNoAxesColumn,
+    path: "/reports"
+  },
+  { 
+    name: "Settings", 
     icon: Settings,
+    path: "/settings"
   },
 ];
 
+
 const Sidebar = () => {
+
   return (
-    <div className="flex  left-0 top-0 flex-col rounded-lg w-58 border-r border-slate-200 bg-gradient-to-br from-[#061b43] via-[#05255a] to-[#031638]">
-        <div className = "flex  items-center justify-center  border-b border-slate-700" >
-           <img src = "/logo.png"
-               alt="Student Management System Logo"
-                className="h-23 w-50 mt-4 object-contain "/>
+
+    <aside className="fixed left-0 top-0 flex h-screen w-58 flex-col border-r border-slate-700 bg-gradient-to-br from-[#061b43] via-[#05255a] to-[#031638]">
+
+
+      {/* Logo */}
+      <div className="flex items-center justify-center border-b border-slate-700 py-4">
+
+        <img
+          src="/logo.png"
+          alt="Logo"
+          className="h-20 w-auto object-contain"
+        />
+
       </div>
 
-      <nav className="mt-3 flex-1/2 space-y-4 p-2">
-        {menuItems.map((item, index) => {
+
+      {/* Menu */}
+      <nav className="flex-1 overflow-y-auto mt-2 p-2">
+
+
+        {menuItems.map((item)=>{
+
           const Icon = item.icon;
 
+
           return (
-            <button
+
+            <NavLink
               key={item.name}
-              className={`flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-sm font-medium transition cursor-pointer ${
-                index === 0
-                  ? "bg-blue-600 text-white shadow-sm"
-                  : "text-slate-300 hover:bg-blue-50 hover:text-blue-600"
-              }`}
+              to={item.path}
+
+              className={({isActive}) =>
+                `
+                flex w-full items-center gap-3 rounded-lg px-4 py-3 
+                text-sm font-medium transition cursor-pointer
+                ${
+                  isActive
+                  ?
+                  "bg-blue-600 text-white shadow-md"
+                  :
+                  "text-slate-300 hover:bg-white/10 hover:text-white"
+                }
+                `
+              }
             >
-              <Icon size={19} />
+
+              <Icon size={19}/>
+
               {item.name}
-            </button>
-          );
+
+            </NavLink>
+
+          )
+
         })}
 
-        <button className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-red-50 hover:text-red-600 cursor-pointer">
-          <LogOut size={19} />
-          Logout
-        </button>
-        </nav>
 
-        <div className = " m-2  left-2  rounded-xl border border-slate-200 bg-slate-400 p-4 ">
-          <div className = "mb-3 flex items-center gap-2 ">
-            <GraduationCap className="text-blue-600 " size={30} />
-            <div>
-              <p className = "text-sm font-semibold text-slate-800"> Need Help?</p>
-              <p className = "text-xs text-slate-300 font-semibold">Check our documentation</p>
-            </div>
+        <button
+          className="
+          mt-2 flex w-full items-center gap-3 rounded-lg 
+          px-4 py-3 text-sm font-medium text-slate-300 
+          hover:bg-red-500/20 hover:text-red-400
+          "
+        >
+
+          <LogOut size={19}/>
+
+          Logout
+
+        </button>
+
+
+      </nav>
+
+
+
+      {/* Help Card */}
+      <div className="m-3 rounded-xl border border-slate-300 bg-slate-100 p-4">
+
+        <div className="mb-3 flex items-center gap-3">
+
+          <GraduationCap 
+            className="text-blue-600" 
+            size={30}
+          />
+
+          <div>
+
+            <p className="text-sm font-semibold text-slate-800">
+              Need Help?
+            </p>
+
+            <p className="text-xs text-slate-500">
+              Check our documentation
+            </p>
+
           </div>
-           <button className="w-full rounded-lg bg-blue-600 py-2 text-sm font-medium text-white hover:bg-blue-700">
+
+        </div>
+
+
+        <button 
+          className="
+          w-full rounded-lg bg-blue-600 py-2 
+          text-sm font-medium text-white
+          hover:bg-blue-700
+          "
+        >
           View Docs
         </button>
-        </div>
-      
-    </div>
-  )
-}
-
-export default Sidebar
 
 
+      </div>
+
+
+    </aside>
+
+  );
+
+};
+
+
+export default Sidebar;
