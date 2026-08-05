@@ -26,16 +26,16 @@ const chartData = [
 
 const StudentGrowthChart = () => {
   return (
-    <div className ="mt-3 rounded-xl border-2 border-slate-200 bg-slate-200 p-5 shadow-sm">
-      <div className = "mb-5 flex items-center justify-center gap-4">
+    <div className =" rounded-xl border-2 border-slate-200 bg-slate-200 p-5 shadow-sm">
+      <div className = "mb-5 flex items-center justify-center ">
         <h2 className="font-semibold text-slate-800">Student Growth</h2>
-        <select className ="rounded-lg border-2 border-slate-300 px-3 py-2 text-sm outline-none font-semibold cursor-pointer">
+        <select className ="rounded-lg border-2 border-slate-300 px-3 py-2 text-sm outline-none font-semibold cursor-pointer ">
           <option>This Year</option>
           <option>Last Year</option>
         </select>
       </div>
 
-      <div className='h-80'>
+      <div className='h-67'>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
