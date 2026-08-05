@@ -41,6 +41,10 @@ const menuItems = [
     name: "Departments",
     icon: Building2,
   },
+  {
+   name: "Reports",
+   icon: ChartNoAxesColumn,
+  },
 
   {
     name: "Settings",
@@ -50,14 +54,14 @@ const menuItems = [
 
 const Sidebar = () => {
   return (
-    <div className="flex left-0 top-0 flex-col h-screen w-58 border-r border-slate-200 bg-gradient-to-br from-[#061b43] via-[#05255a] to-[#031638]">
-        <div className = "flex h-23 items-center justify-center  border-b border-slate-700" >
+    <div className="flex  left-0 top-0 flex-col rounded-lg w-58 border-r border-slate-200 bg-gradient-to-br from-[#061b43] via-[#05255a] to-[#031638]">
+        <div className = "flex  items-center justify-center  border-b border-slate-700" >
            <img src = "/logo.png"
                alt="Student Management System Logo"
                 className="h-23 w-50 mt-4 object-contain "/>
       </div>
 
-      <nav className="space-y-2 p-4">
+      <nav className="mt-3 flex-1/2 space-y-4 p-2">
         {menuItems.map((item, index) => {
           const Icon = item.icon;
 
@@ -82,7 +86,7 @@ const Sidebar = () => {
         </button>
         </nav>
 
-        <div className = " absolute bottom-5 left-2  rounded-xl border border-slate-200 bg-slate-400 p-4 ">
+        <div className = " m-2  left-2  rounded-xl border border-slate-200 bg-slate-400 p-4 ">
           <div className = "mb-3 flex items-center gap-2 ">
             <GraduationCap className="text-blue-600 " size={30} />
             <div>

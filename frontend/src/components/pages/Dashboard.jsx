@@ -24,6 +24,7 @@ import StatsSection from "../dashboard/StatsSection";
 import StudentGrowthChart from "../dashboard/StudentGrowthChart";
 import AttendanceChart from "../dashboard/AttendanceChart";
 import QuickActions from "../dashboard/QuickActions";
+import RecentStudents from "../dashboard/RecentStudents";
 
 function Dashboard() {
   return (
@@ -44,6 +45,8 @@ function Dashboard() {
         <QuickActions/>
         </div>
       </section>
+      <RecentStudents/>
+
     </DashboardLayout>
   );
 }

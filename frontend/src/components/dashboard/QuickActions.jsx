@@ -24,13 +24,13 @@ const QuickActions = () => {
     <div className="rounded-xl border-2 border-slate-300 bg-white p-5 shadow-sm">
       <h2 className="mb-4 font-semibold text-slate-800">Quick Actions</h2>
       
-      <div className="space-y-3">
+      <div className="space-y-3 cursor-p">
         {actions.map((action) => {
           const Icon = action.icon;
           return(
             <button
             key ={action.title}
-            className ={`flex w-full  items-center justify-center gap-2 rounded-lg border py-3 text-sm font-medium transition hover:opacity-80 ${action.style}`}>
+            className ={`flex w-full  items-center justify-center gap-2 rounded-lg border py-3 text-sm font-medium transition hover:opacity-80 cursor-pointer ${action.style}`}>
               <Icon size={18} /> +{action.title}
             </button>
           )
