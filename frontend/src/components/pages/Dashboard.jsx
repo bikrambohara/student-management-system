@@ -23,21 +23,25 @@ import DashboardLayout from "../layout/DashboardLayout";
 import StatsSection from "../dashboard/StatsSection";
 import StudentGrowthChart from "../dashboard/StudentGrowthChart";
 import AttendanceChart from "../dashboard/AttendanceChart";
+import QuickActions from "../dashboard/QuickActions";
 
 function Dashboard() {
   return (
     <DashboardLayout>
       <StatsSection />
 
-      <section className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-12">
+      <section className="mt-3 grid grid-cols-1 gap-3 lg:grid-cols-14">
         {/* Student Growth */}
         <div className="lg:col-span-7">
           <StudentGrowthChart />
         </div>
 
         {/* Attendance */}
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-4">
           <AttendanceChart />
+        </div>
+        <div className="lg:col-span-3">
+        <QuickActions/>
         </div>
       </section>
     </DashboardLayout>
