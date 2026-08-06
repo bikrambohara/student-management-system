@@ -1,34 +1,38 @@
+import React, { useState } from "react";
 import DashboardLayout from "../components/layout/DashboardLayout";
-
 import StudentHeader from "../components/students/StudentHeader";
 import StudentFilter from "../components/students/StudentFilter";
 import StudentTable from "../components/students/StudentTable";
 import StudentPagination from "../components/students/StudentPagination";
 
+import { students } from "../data/students";
 
-function Students(){
+const Students = () => {
+  const [currentPage, setCurrentPage] = useState(1);
 
+  const studentsPerPage = 5;
 
-return (
+  const lastStudent = currentPage * studentsPerPage;
+  const firstStudent = lastStudent - studentsPerPage;
 
-<DashboardLayout>
-    <StudentHeader/>
-    <StudentFilter />
+  const currentStudents = students.slice(firstStudent, lastStudent);
 
+  return (
+    <DashboardLayout>
+      <StudentHeader />
 
-    <StudentTable />
+      <StudentFilter />
 
+      <StudentTable students={currentStudents} />
 
-    <StudentPagination />
-
-
-</DashboardLayout>
-
-
-)
-
-
-}
-
+      <StudentPagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalStudents={students.length}
+        studentsPerPage={studentsPerPage}
+      />
+    </DashboardLayout>
+  );
+};
 
 export default Students;

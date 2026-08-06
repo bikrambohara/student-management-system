@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+/* .tableHead {
+  @apply px-6 py-4 text-left text-sm font-semibold text-slate-700;
+}
+
+.tableData {
+  @apply px-6 py-4 text-sm text-slate-600;
+} */
