@@ -68,7 +68,7 @@ const Sidebar = () => {
 
   return (
 
-    <aside className="fixed left-0 top-0 flex h-screen w-58 flex-col border-r border-slate-700 bg-gradient-to-br from-[#061b43] via-[#05255a] to-[#031638]">
+    <aside className="fixed left-0 top-0 flex w-58 flex-col border-r border-slate-700 bg-gradient-to-br from-[#061b43] via-[#05255a] to-[#031638]">
 
 
       {/* Logo */}
