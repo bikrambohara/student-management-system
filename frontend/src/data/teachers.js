@@ -1,54 +1,110 @@
-export const teachers=[
-
-
-{
-name:"Mr. David Smith",
-department:"Computer Science",
-email:"david.smith@email.com",
-phone:"+977 9812345670",
-status:"Active",
-image:"https://i.pravatar.cc/150?img=12"
-},
-
-
-{
-name:"Ms. Sarah Johnson",
-department:"Information Technology",
-email:"sarah.johnson@email.com",
-phone:"+977 9812345671",
-status:"Active",
-image:"https://i.pravatar.cc/150?img=47"
-},
-
-
-{
-name:"Mr. Michael Brown",
-department:"Mathematics",
-email:"michael.brown@email.com",
-phone:"+977 9812345672",
-status:"Active",
-image:"https://i.pravatar.cc/150?img=14"
-},
-
-
-{
-name:"Ms. Emily Davis",
-department:"Business Administration",
-email:"emily.davis@email.com",
-phone:"+977 9812345673",
-status:"Active",
-image:"https://i.pravatar.cc/150?img=45"
-},
-
-
-{
-name:"Mr. James Wilson",
-department:"English",
-email:"james.wilson@email.com",
-phone:"+977 9812345674",
-status:"Inactive",
-image:"https://i.pravatar.cc/150?img=13"
-}
-
-
-]
+export const teachers = [
+  {
+    id: 1,
+    name: "Mr. David Smith",
+    department: "Computer Science",
+    email: "david.smith@email.com",
+    phone: "+977 9812345670",
+    status: "Active",
+    image: "https://i.pravatar.cc/150?img=12",
+  },
+  {
+    id: 2,
+    name: "Ms. Sarah Johnson",
+    department: "Information Technology",
+    email: "sarah.johnson@email.com",
+    phone: "+977 9812345671",
+    status: "Active",
+    image: "https://i.pravatar.cc/150?img=47",
+  },
+  {
+    id: 3,
+    name: "Mr. Michael Brown",
+    department: "Mathematics",
+    email: "michael.brown@email.com",
+    phone: "+977 9812345672",
+    status: "Active",
+    image: "https://i.pravatar.cc/150?img=14",
+  },
+  {
+    id: 4,
+    name: "Ms. Emily Davis",
+    department: "Business Administration",
+    email: "emily.davis@email.com",
+    phone: "+977 9812345673",
+    status: "Active",
+    image: "https://i.pravatar.cc/150?img=45",
+  },
+  {
+    id: 5,
+    name: "Mr. James Wilson",
+    department: "English",
+    email: "james.wilson@email.com",
+    phone: "+977 9812345674",
+    status: "Inactive",
+    image: "https://i.pravatar.cc/150?img=13",
+  },
+  {
+    id: 6,
+    name: "Ms. Olivia Taylor",
+    department: "Computer Science",
+    email: "olivia.taylor@email.com",
+    phone: "+977 9812345675",
+    status: "Active",
+    image: "https://i.pravatar.cc/150?img=32",
+  },
+  {
+    id: 7,
+    name: "Mr. Daniel Anderson",
+    department: "Information Technology",
+    email: "daniel.anderson@email.com",
+    phone: "+977 9812345676",
+    status: "Active",
+    image: "https://i.pravatar.cc/150?img=11",
+  },
+  {
+    id: 8,
+    name: "Ms. Sophia Martinez",
+    department: "Physics",
+    email: "sophia.martinez@email.com",
+    phone: "+977 9812345677",
+    status: "Inactive",
+    image: "https://i.pravatar.cc/150?img=44",
+  },
+  {
+    id: 9,
+    name: "Mr. William Thomas",
+    department: "Mathematics",
+    email: "william.thomas@email.com",
+    phone: "+977 9812345678",
+    status: "Active",
+    image: "https://i.pravatar.cc/150?img=15",
+  },
+  {
+    id: 10,
+    name: "Ms. Jessica Anderson",
+    department: "Business Administration",
+    email: "jessica.anderson@email.com",
+    phone: "+977 9812345679",
+    status: "Active",
+    image: "https://i.pravatar.cc/150?img=48",
+  },
+  {
+    id: 11,
+    name: "Mr. Robert Martin",
+    department: "English",
+    email: "robert.martin@email.com",
+    phone: "+977 9812345680",
+    status: "Active",
+    image: "https://i.pravatar.cc/150?img=68",
+  },
+  {
+    id: 12,
+    name: "Ms. Emma Thompson",
+    department: "Computer Science",
+    email: "emma.thompson@email.com",
+    phone: "+977 9812345681",
+    status: "Inactive",
+    image: "https://i.pravatar.cc/150?img=49",
+  },
+];
