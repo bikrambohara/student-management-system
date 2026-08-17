@@ -1,8 +1,9 @@
-from fastapi import FastAPI,Depends, HTTPException
+from fastapi import FastAPI,Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from database import engine,SessionLocal
 import  models,schemas
 
+from auth import create_token,verify_token
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -16,14 +17,23 @@ def get_db():
     finally:
         db.close()
 
+
+# logiin API
+@app.post("/login")
+def login():
+    return{
+        "access_token": create_token({"username": "admin"}),
+        "token_type": "bearer",
+    }
+
 # home
 @app.get("/")
 def home ():
     return {"message": "student API started"}
 
-# create student
+# create student(protected)
 @app.post("/students", response_model=schemas.Student)
-def create_student(student:schemas.StudentCreate, db:Session=Depends(get_db)):
+def create_student(student:schemas.StudentCreate, db:Session=Depends(get_db), user = Depends(verify_token)):
     new_student = models.Student(
         name=student.name,
         email=student.email,
@@ -45,9 +55,25 @@ def create_student(student:schemas.StudentCreate, db:Session=Depends(get_db)):
 
 # read all students
 
-@app.get("/students", response_model = list[schemas.Student])
-def get_students(db:Session=Depends(get_db)):
-    return db.query(models.Student).all()
+@app.get("/students")
+def get_students(page: int = 1,
+                 limit:int = 5,
+                 search:str = Query(""),
+                 db:Session=Depends(get_db)):
+    query = db.query(models.Student)
+    if search:
+        query = query.filter(models.Student.name.ilike(f"%{search}%"))
+
+    total = query.count()
+    start = (page - 1) * limit
+    students = query.offset(start).limit(limit).all()
+
+    return{
+        "page": page,
+        "limit": limit,
+        "total": total,
+        "data": students
+    }
 
 # red one student by id
 
@@ -59,9 +85,9 @@ def get_student_by_id(student_id:int, db:Session=Depends(get_db)):
     return student
 
 
-# update student
+# update student(protected)
 @app.put("/students/{student_id}", response_model=schemas.Student)
-def update_student(student_id:int, student:schemas.StudentUpdate, db:Session=Depends(get_db)):
+def update_student(student_id:int, student:schemas.StudentUpdate, db:Session=Depends(get_db), user = Depends(verify_token)):
     existing_student = db.query(models.Student).filter(models.Student.id == student_id).first()
     if not existing_student:
         raise HTTPException(status_code=404, detail="Student not found")
@@ -82,9 +108,9 @@ def update_student(student_id:int, student:schemas.StudentUpdate, db:Session=Dep
     return existing_student
 
 
-# delete student
+# delete student(protected)
 @app.delete("/students/{student_id}", response_model=schemas.Student)
-def delete_student(student_id:int, db:Session=Depends(get_db)):
+def delete_student(student_id:int, db:Session=Depends(get_db), user = Depends(verify_token)):
     student = db.query(models.Student).filter(models.Student.id == student_id)
     if not student.first():
         raise HTTPException(status_code=404, detail="Student not found")
